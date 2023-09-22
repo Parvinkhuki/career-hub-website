@@ -19,12 +19,13 @@ const Jobs = () => {
            {
                jobs.slice(0,dataLength).map((job)=><Job key={jobs.id} job={job}></Job>
             )}
-              <div className={dataLength === jobs.length && 'hidden' }>
+            
+           </div>
+           <div className={dataLength === jobs.length && 'hidden' }>
                 <button
                     onClick={() => setDataLength(jobs.length)}
-                    className="btn btn-primary bg-[darkblue] text-white">Show All Jobs</button>
+                    className="btn btn-primary bg-[darkblue] text-white flex  items-center mx-auto  my-7">Show All Jobs</button>
             </div>
-           </div>
            </div>
         </div>
     );
