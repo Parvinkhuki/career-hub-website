@@ -1,4 +1,5 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { NavLink, useLoaderData, useParams } from "react-router-dom";
+import { saveJobApplication } from "./function";
 
 const DetailsShow = () => {
     const {id}=useParams()
@@ -8,18 +9,27 @@ const DetailsShow = () => {
 
   console.log(id,alljobs,job)
 
-
+  const handleApplyJob = () =>{
+   saveJobApplication(intId)
+  
+   
+}
 
 
 
     return (
         <div>
             <h1 className="text-center text-[darkblue] font-bold text-4xl mt-11">Job Details</h1>
-         <div className="card w-[50%] my-5  mx-auto  bg-base-100 shadow-xl">
+         <div className="card w-[80%] lg:w-[50%] my-5  mx-auto  bg-base-100 shadow-xl">
   <div className="card-body">
 
     <h2 className="card-title">{job.job_title
 }</h2>
+ <span>Job Type:  {job.job_type
+
+
+
+}</span>
 <h2 className="font-bold text-[darkblue]  text-xl">company Detail
 </h2> <span className="text-lg font-bold">{job.company_name
 
@@ -53,8 +63,11 @@ const DetailsShow = () => {
 
 }</span>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary bg-[darkblue] text-white">Apply Now</button>
+     <NavLink to='/applied'> <button onClick={handleApplyJob} className="btn btn-primary bg-[darkblue] text-white">Apply Now</button></NavLink>
     </div>
+    {/* <div className="card-actions justify-start">
+     <NavLink> <button className="btn btn-primary bg-[darkblue] text-white">Apply Now</button></NavLink>
+    </div> */}
   </div>
 </div>
         </div>
