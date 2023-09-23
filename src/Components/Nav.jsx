@@ -13,8 +13,8 @@ const Nav = () => {
    <li><NavLink to="/" style={style}>Home</NavLink></li>
         <li><NavLink to="/jobs" style={style}>Jobs</NavLink></li>
         <li><NavLink to="/applied" style={style}>Applied Jobs</NavLink></li>
-        <li><NavLink to="/statistics" style={style}>Statistics</NavLink></li>
-        <li><NavLink to="/blogs" style={style}>Blogs</NavLink></li>
+        {/* <li><NavLink to="/statistics" style={style}>Statistics</NavLink></li>
+        <li><NavLink to="/blogs" style={style}>Blogs</NavLink></li> */}
   </>
     return (
       <div className="max-w-screen-2xl mx-auto">

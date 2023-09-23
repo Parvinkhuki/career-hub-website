@@ -8,7 +8,7 @@ const Jobs = () => {
         fetch('jobs.json')
      .then(res=>res.json())
      .then (data=>setjobs(data))
-     console.log(jobs)
+    
 
     },[jobs])
     return (
@@ -17,7 +17,7 @@ const Jobs = () => {
             <h1 className="text-center w-full text-5xl font-bold my-14">Job Catgories</h1>
            <div className="grid md:grid-cols-2 lg:grid-cols-4 px-6 mt-7 gap-5 mx-auto items-center">
            {
-               jobs.slice(0,dataLength).map((job)=><Job key={jobs.id} job={job}></Job>
+               jobs.slice(0,dataLength).map((job)=><Job key={job.id} job={job}></Job>
             )}
             
            </div>
