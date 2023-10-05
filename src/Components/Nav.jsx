@@ -1,8 +1,13 @@
 import { NavLink } from "react-router-dom";
 import './Nav.css'
+import { useContext } from "react";
+import { AuthContext } from "./Authprovider";
 const Nav = () => {
-   const style=
-    ({ isActive}) => {
+
+
+const {logOut,user}=useContext(AuthContext)
+
+   const style=({ isActive}) => {
         return {
           backgroundColor: isActive ? "darkBlue"  : "",
           fontWeight: isActive ? "bold" : "",
@@ -13,8 +18,7 @@ const Nav = () => {
    <li><NavLink to="/" style={style}>Home</NavLink></li>
         <li><NavLink to="/jobs" style={style}>Jobs</NavLink></li>
         <li><NavLink to="/applied" style={style}>Applied Jobs</NavLink></li>
-        {/* <li><NavLink to="/statistics" style={style}>Statistics</NavLink></li>
-        <li><NavLink to="/blogs" style={style}>Blogs</NavLink></li> */}
+        
   </>
     return (
       <div className="max-w-screen-2xl mx-auto">
@@ -36,7 +40,14 @@ const Nav = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn bg-[darkBlue] text-white">applying</a>
+        {  user?
+        <div className=" flex-col-reverse md:flex md:flex-row justify-center items-center font-bold gap-2">
+          <p className='text-xs md:text-base font-bold'>{user.email}</p>
+          <NavLink  className="btn bg-[darkBlue] text-white" onClick={logOut}>LogOut</NavLink> 
+          </div>:
+        <NavLink to='/login' className="btn bg-[darkBlue] text-white">Login</NavLink> 
+      
+        }
         </div>
       </div>
       </div>
