@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Social from './Social';
 import { AuthContext } from './Authprovider';
 
@@ -8,6 +8,7 @@ const Register = () => {
     const {signup}=useContext(AuthContext)
    const [error, seterror]=useState("")
    const location = useLocation()
+   const navigate=useNavigate()
 
     const onSubmit=(e)=>{
         e.preventDefault()
